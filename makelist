@@ -1,0 +1,62 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(cls)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(-Wno-template-body)
+endif()
+
+set(CMAKE_CXX_FLAGS "-std=c++17")
+
+set(Protobuf_INCLUDE_DIR "./x64-windows/include/")
+set(Protobuf_LIBRARIES "./x64-windows/lib/libprotobuf.lib")
+set(CURL_INCLUDE_DIR "./x64-windows/include/")
+set(CURL_LIBRARY "./x64-windows/lib/libcurl.lib")
+set(Boost_INCLUDE_DIR "./x64-windows/include/")
+set(ZLIB_LIBRARY "./x64-windows/lib/zlib.lib")
+set(ZLIB_INCLUDE_DIR "./x64-windows/include/")
+set(OPENSSL_CRYPTO_LIBRARY "./x64-windows/lib/libcrypto.lib")
+set(OPENSSL_SSL_LIBRARY "./x64-windows/lib/libssl.lib")
+set(OPENSSL_INCLUDE_DIR "./x64-windows/include/")
+list(APPEND CMAKE_PREFIX_PATH "./x64-windows/share")
+
+find_package(Protobuf REQUIRED)
+find_package(CURL REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system thread)
+find_package(OpenSSL REQUIRED)
+
+include_directories(./)
+include_directories(./x64-windows/include)
+
+#set(PROTO_FILE
+#        "${CMAKE_SOURCE_DIR}/cls_logs.proto"
+#        "${CMAKE_SOURCE_DIR}/logproducerconfig.proto")
+#protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS
+#    ${PROTO_FILE})
+
+
+aux_source_directory(cls src)
+aux_source_directory(lz4 src)
+aux_source_directory(rapidjson src)
+
+add_executable(cls ${src} cls_logs.pb.cc logproducerconfig.pb.cc)
+
+target_link_libraries(cls PRIVATE protobuf::libprotobuf)
+target_link_libraries(cls PRIVATE CURL::libcurl)
+target_link_libraries(cls PRIVATE Boost::boost)
+target_link_libraries(cls PRIVATE Boost::system)
+target_link_libraries(cls PRIVATE Boost::thread)
+target_link_libraries(cls PRIVATE OpenSSL::SSL)
+target_link_libraries(cls PRIVATE OpenSSL::Crypto)
+
+
+if(MSVC)
+    set_target_properties(cls PROPERTIES COMPILE_FLAGS "/EHsc")  # MSVC专用
+else()
+    set_target_properties(cls PROPERTIES COMPILE_FLAGS "-fexceptions")  # GCC/Clang等效选项
+endif()
+
+target_compile_definitions(cls PRIVATE
+        BOOST_THROW_EXCEPTION
+        BOOST_SYSTEM_NO_DEPRECATED
+)
