@@ -1,0 +1,51 @@
+CMake Warning at C:/Program Files/CMake/share/cmake-3.26/Modules/FindProtobuf.cmake:524 (message):
+  Protobuf compiler version 29.3 doesn't match library version 5.29.3
+Call Stack (most recent call first):
+  CMakeLists.txt:14 (find_package)
+
+
+CMake Warning at C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1384 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1508 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:2119 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:16 (find_package)
+
+
+CMake Warning at C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1384 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1508 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:2119 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:16 (find_package)
+
+
+CMake Warning at C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1384 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1508 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:2119 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:16 (find_package)
+
+
+CMake Warning at C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1384 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:1508 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:2119 (_Boost_MISSING_DEPENDENCIES)
+  CMakeLists.txt:16 (find_package)
+
+
+CMake Error at C:/Program Files/CMake/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find Boost (missing: system thread) (found version "1.88.0")
+Call Stack (most recent call first):
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake:600 (_FPHSA_FAILURE_MESSAGE)
+  C:/Program Files/CMake/share/cmake-3.26/Modules/FindBoost.cmake:2377 (find_package_handle_standard_args)
+  CMakeLists.txt:16 (find_package)
+
+
+Configuring incomplete, errors occurred!
